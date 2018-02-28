@@ -5,6 +5,8 @@ import FileUpload from './FileUpload'
 import './App.css';
 
 
+
+
 class App extends Component{
   constructor (){
     super();
@@ -41,7 +43,8 @@ if(this.state.user){
       <div>
             <img src={this.state.user.photoURL} alt={this.state.user.displayName} />
             <p>Hola {this.state.user.displayName}!</p>
-            <button onClick={this.handleLogout}>Salir</button>
+            <button class={"logout"} onClick={this.handleLogout}>Salir</button>
+
             <FileUpload />
             
       </div>
@@ -51,7 +54,7 @@ if(this.state.user){
 }else{
   //Si no lo esta
   return(
-  <button onClick={this.handleauth}>Login con Google</button>
+  <button class={"googleBoton"} onClick={this.handleauth}>Login con Google</button>
 )
 }
 
@@ -64,6 +67,7 @@ if(this.state.user){
     return (
       <div className="App">
         <header className="App-header">
+            <div className={"logoCam"}></div>
          
           <h1 className="App-title">PseudoGram</h1>
         </header>

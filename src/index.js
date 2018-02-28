@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+
 firebase.initializeApp({
 	apiKey: "AIzaSyA4-buvJ2bx6n7bLFuuTcapQvgxXHvRa4U",
     authDomain: "pseudogram-reactjs.firebaseapp.com",
