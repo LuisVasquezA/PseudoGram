@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
+
+import FileUpload from './FileUpload'
 import './App.css';
 
 
@@ -15,7 +17,7 @@ class App extends Component{
   }
   componentWillMount () {
   firebase.auth().onAuthStateChanged(user => {
-    this.setState({ user  });
+    this.setState({ user });
   });
 }
 handleauth(){
@@ -27,7 +29,7 @@ handleauth(){
   }
 
   handleLogout () {
-      firebase.auth().singOut()
+      firebase.auth().signOut()
       .then(result => console.log('${result.user.email} ha salido'))
       .catch(error => console.log('Error ${error.code} : ${error.message}'))
   }
@@ -38,18 +40,22 @@ if(this.state.user){
   return(
       <div>
             <img src={this.state.user.photoURL} alt={this.state.user.displayName} />
-            <p>Hola{this.state.user.displayName}!</p>
-            <button onClick={this.handleLogout}>Singout</button>
+            <p>Hola {this.state.user.displayName}!</p>
+            <button onClick={this.handleLogout}>Salir</button>
+            <FileUpload />
+            
       </div>
 
     );
 
 }else{
+  //Si no lo esta
   return(
-  <button onClick={this.handleauth}>Login con Google</button>)
+  <button onClick={this.handleauth}>Login con Google</button>
+)
 }
 
-//Si no lo esta
+
 
 
   }
